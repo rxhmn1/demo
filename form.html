@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: lightblue;
+        }
+
+        .container {
+            width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+        }
+
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Event Registration</h2>
+
+<form>
+
+    Name:
+    <input type="text" id="name">
+
+    Email:
+    <input type="email" id="email">
+
+    Phone:
+    <input type="text" id="phone">
+
+    Gender:
+    <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    College:
+    <input type="text" id="college">
+
+    Event:
+    <select id="event">
+        <option value="">Select Event</option>
+        <option>Hackathon</option>
+        <option>Workshop</option>
+        <option>Cultural Fest</option>
+        <option>Technical Fest</option>
+    </select>
+
+    Date:
+    <input type="date" id="date">
+
+    Address:
+    <textarea id="address"></textarea>
+
+    <button type="button" onclick="register()">Register</button>
+    <button type="reset">Reset</button>
+
+    <p id="msg"></p>
+
+</form>
+
+</div>
+
+<script>
+function register() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let gender = document.getElementById("gender").value;
+    let college = document.getElementById("college").value;
+    let event = document.getElementById("event").value;
+    let date = document.getElementById("date").value;
+    let address = document.getElementById("address").value;
+
+    if (name == "" || email == "" || phone == "" || gender == "" ||
+        college == "" || event == "" || date == "" || address == "") {
+
+        document.getElementById("msg").innerHTML = "Please fill all fields";
+        document.getElementById("msg").style.color = "red";
+    }
+    else {
+        document.getElementById("msg").innerHTML = "Registration Successful!";
+        document.getElementById("msg").style.color = "green";
+    }
+}
+</script>
+
+</body>
+</html>
