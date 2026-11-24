@@ -1,115 +1,55 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Event Registration</title>
+    <head>
+        <script>
+            function validate(){
+                var name=document.getElementById("name").value;
+                var rollno=document.getElementById("rollno").value;
+                var branch=document.getElementById("branch").value;
+                var email=document.getElementById("email").value;
+                var mno=document.getElementById("mno").value;
+                var age=document.getElementById("age").value;
 
-    <style>
-        body {
-            font-family: Arial;
-            background: lightblue;
-        }
-
-        .container {
-            width: 400px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-        }
-
-        h2 {
-            text-align: center;
-            color: blue;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 8px 15px;
-            margin: 5px;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Event Registration</h2>
-
-<form>
-
-    Name:
-    <input type="text" id="name">
-
-    Email:
-    <input type="email" id="email">
-
-    Phone:
-    <input type="text" id="phone">
-
-    Gender:
-    <select id="gender">
-        <option value="">Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-    </select>
-
-    College:
-    <input type="text" id="college">
-
-    Event:
-    <select id="event">
-        <option value="">Select Event</option>
-        <option>Hackathon</option>
-        <option>Workshop</option>
-        <option>Cultural Fest</option>
-        <option>Technical Fest</option>
-    </select>
-
-    Date:
-    <input type="date" id="date">
-
-    Address:
-    <textarea id="address"></textarea>
-
-    <button type="button" onclick="register()">Register</button>
-    <button type="reset">Reset</button>
-
-    <p id="msg"></p>
-
-</form>
-
-</div>
-
-<script>
-function register() {
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let gender = document.getElementById("gender").value;
-    let college = document.getElementById("college").value;
-    let event = document.getElementById("event").value;
-    let date = document.getElementById("date").value;
-    let address = document.getElementById("address").value;
-
-    if (name == "" || email == "" || phone == "" || gender == "" ||
-        college == "" || event == "" || date == "" || address == "") {
-
-        document.getElementById("msg").innerHTML = "Please fill all fields";
-        document.getElementById("msg").style.color = "red";
-    }
-    else {
-        document.getElementById("msg").innerHTML = "Registration Successful!";
-        document.getElementById("msg").style.color = "green";
-    }
-}
-</script>
-
-</body>
+                if(name==""||rollno==""||branch==""||email==""||mno==""||age==""){
+                    alert("Please enter all the details"); return false;
+                }
+                if(email.indexOf("@")==-1 || email.indexOf(".")==-1){
+                    alert("enter valid email"); return false;
+                }
+                if(mno.length!=10 || isNaN(mno)){
+                    alert("enter a valid mobile number"); return false;
+                }
+                alert("Registration Successful");
+                return true;
+            }
+        </script>
+        <style>
+            *{
+                padding:5px;
+                margin:5px;
+                font-family: Arial;
+                text-align: center;
+            }
+            form{
+                margin:auto;
+                width:320px;
+                border:solid;
+                background:#f9f9f9;
+            }
+            input[type="submit"]{background: blue; color:white;}
+            input[type="reset"]{background:red; color:white;}
+        </style>
+    </head>
+    <body>
+        <h1>Registration Form</h1>
+        <form onsubmit="return validate()">
+            Name:<input type="text" id="name"><br>
+            RollNo:<input type="text" id="rollno"><br>
+            Branch:<input type="text" id="branch"><br>
+            Email:<input type="email" id="email"><br>
+            Mobile Number:<input type="text" id="mno"><br>
+            Age:<input type="text" id="age"><br>
+            <input type="submit" value="register">
+            <input type="reset" value="reset">
+        </form>
+    </body>
 </html>
